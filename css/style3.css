@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;   
+    font-family: 
+    "Gill Sans", "Gill Sans MT", 
+    "Myriad Pro", "DejaVu Sans Condensed", 
+    Helvetica, Arial, sans-serif;
+}
+
+
+
+@font-face {
+    font-family: 'static'; 
+    src: url('./static/Oswald-Light.ttf');
+}
+
+header {
+    background-color: #000000c8;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* يضمن ترتيب جيد للعناصر */
+    align-items: center;
+    padding: 10px 30px; /* تقليل البادينج ليتناسب مع الموبايل */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.logo1 {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 30px; /* تصغير اللوجو قليلاً للموبايل */
+}
+.logo1 h1 {
+    color: #ffffff;
+    font-family: 'static';
+    font-size: 24px; /* تقليل حجم الخط حتى لا يسبب مشاكل */
+    margin-left: 10px;
+}
+
+
+.toggle {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    background-color: #7272727f;
+    cursor: pointer;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: auto;
+}
+
+.toggle span {
+    width: 100%;
+    background-color: #f8f8f8;
+    height: 2px;
+    transition: 0.5s;
+}
+.toggle:hover span {
+    background-color: #333;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #3f3f3fe6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transform: translateX(-100%);
+    margin-left: auto;
+
+}
+nav.open {
+    transform: translateX(0);
+}
+
+/* تحسين شكل زر الإغلاق */
+nav .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+nav .close:hover {
+    color: #e00000;
+    border-color: #cd5c5c;
+}
+nav a {
+    color: #e7e7e7;
+    width: 100%;
+
+    text-decoration: none;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 80px;
+    transition: 0.5s;
+    
+}
+nav a:hover {
+ color: #fffc49;
+ margin: 20px 0px;
+ border-bottom: 2px solid #fffc49;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 15px; /* تقليل المساحة داخل الهيدر */
+    }
+    .logo {
+        width: 45px; /* تصغير اللوجو أكثر للموبايلات */
+    }
+    .logo1 h1 {
+        font-size: 20px; /* تقليل حجم الخط */
+    }
+    .toggle {
+        display: flex; /* تأكد من أنها ظاهرة */
+    }
+
+}
+
+
+
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.slider-container {
+    position: relative;
+    width: 400px;
+    height:auto;
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 50px 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.068);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.3s;
+    border-radius: 9px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+@media (max-width: 900px) {
+    .cont {
+        flex-direction: column;
+        align-items: center;
+    }
+    .slider-container {
+        width: 80%;
+    }
+}
+
+footer {
+    background-color: #2e2e2e;
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #c4c4c4;
+}
+
+.explore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #aeaeae;
+}
